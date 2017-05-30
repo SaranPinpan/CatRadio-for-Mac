@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="RnZ-cT-an6" id="5zB-Bj-Y8T"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="RnZ-cT-an6" userLabel="Delegate" customClass="AppDelegate" customModule="Cat" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="0EH-pU-laY" customClass="MenuController" customModule="Cat" customModuleProvider="target">
+            <connections>
+                <outlet property="menu" destination="co5-EJ-zbK" id="kLY-Iz-7Mo"/>
+                <outlet property="playButton" destination="SV0-rH-Bvo" id="o5o-6m-CE3"/>
+            </connections>
+        </customObject>
+        <menu id="co5-EJ-zbK">
+            <items>
+                <menuItem title="Play radio" id="SV0-rH-Bvo">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="playClicked:" target="0EH-pU-laY" id="QDW-eo-Pak"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit" id="ksZ-70-pFX">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quitClicked:" target="0EH-pU-laY" id="nrV-Bg-meL"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="138.5" y="155.5"/>
+        </menu>
+    </objects>
+</document>
