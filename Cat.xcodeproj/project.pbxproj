@@ -304,6 +304,7 @@
 				4B1D811F1EDD96AE00A68D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
