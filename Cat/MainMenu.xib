@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -16,6 +17,7 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="0EH-pU-laY" customClass="MenuController" customModule="Cat" customModuleProvider="target">
             <connections>
+                <outlet property="infoView" destination="3wY-rE-2Rj" id="hCP-b4-loa"/>
                 <outlet property="menu" destination="co5-EJ-zbK" id="kLY-Iz-7Mo"/>
                 <outlet property="playButton" destination="SV0-rH-Bvo" id="o5o-6m-CE3"/>
             </connections>
@@ -28,6 +30,11 @@
                         <action selector="playClicked:" target="0EH-pU-laY" id="QDW-eo-Pak"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="0tn-m7-tfa"/>
+                <menuItem title="Info" id="W4V-Qc-CLT">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="IVQ-Tz-UII"/>
                 <menuItem title="Quit" id="ksZ-70-pFX">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -35,7 +42,72 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="138.5" y="155.5"/>
+            <point key="canvasLocation" x="138" y="165.5"/>
         </menu>
+        <customView id="3wY-rE-2Rj" customClass="InfoView" customModule="Cat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="291" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoO-Pf-eUK">
+                    <rect key="frame" x="99" y="56" width="160" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Now playing" id="bEK-dz-xJh">
+                        <font key="font" metaFont="systemBold" size="20"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHn-yl-EgB">
+                    <rect key="frame" x="99" y="32" width="43" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Song :" id="hJ0-EK-Gk3">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAU-ng-hBa">
+                    <rect key="frame" x="99" y="10" width="49" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Artist :" id="Xwk-rh-4la">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQy-O3-rvq">
+                    <rect key="frame" x="146" y="32" width="139" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Song name" id="A7o-bb-8W4">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0o-vD-ghL">
+                    <rect key="frame" x="152" y="10" width="133" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Artist name" id="BaT-ZG-dBJ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1H-y9-aXX">
+                    <rect key="frame" x="24" y="14" width="60" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" image="CoverImage" id="biC-SO-4sy"/>
+                </imageView>
+            </subviews>
+            <connections>
+                <outlet property="artistName" destination="B0o-vD-ghL" id="5rA-3k-cSY"/>
+                <outlet property="songImage" destination="K1H-y9-aXX" id="HIN-cJ-gew"/>
+                <outlet property="songName" destination="MQy-O3-rvq" id="0rO-VH-xW5"/>
+            </connections>
+            <point key="canvasLocation" x="228.5" y="331"/>
+        </customView>
     </objects>
+    <resources>
+        <image name="CoverImage" width="480" height="480"/>
+    </resources>
 </document>

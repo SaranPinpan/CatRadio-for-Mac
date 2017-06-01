@@ -11,6 +11,7 @@ import AVFoundation
 
 class RadioPlayer {
     static let sharedInstance = RadioPlayer()
+    
     private var player = AVPlayer(url: NSURL(string: "http://203.145.115.35/CatRadio/CatRadio-High/chunklist_w86482277.m3u8")! as URL)
     private var isPlaying = false
     
@@ -36,4 +37,5 @@ class RadioPlayer {
     func currentlyPlaying() -> Bool {
         return isPlaying
     }
+
 }
