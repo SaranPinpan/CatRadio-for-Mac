@@ -67,10 +67,14 @@ class MenuController: NSObject {
             if let JSON = response.result.value {
                 
                 let data = JSON as! NSDictionary
-                let nowPlaying = data.value(forKey: "now") as! NSDictionary
-                let image = nowPlaying.value(forKey: "id") as! String
+                if (data.value(forKey: "now") != nil){
+                    let nowPlaying = data.value(forKey: "now") as! NSDictionary
+                    let image = nowPlaying.value(forKey: "id") as! String
                 
-                self.infoView.updateInfo(song: nowPlaying.value(forKey: "song")! as! String, artist: nowPlaying.value(forKey: "name")! as! String, image: "http://cms.thisiscat.tk/admin/pix/single/\(image)_medium.jpg")
+                    self.infoView.updateInfo(song: nowPlaying.value(forKey: "song")! as! String, artist: nowPlaying.value(forKey: "name")! as! String, image: "http://cms.thisiscat.tk/admin/pix/single/\(image)_medium.jpg")
+                } else {
+                    self.infoView.updateInfo(song: "-", artist: "-", image: "")
+                }
             }
             
         }
