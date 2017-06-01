@@ -21,14 +21,23 @@ class InfoView: NSView {
     }
     
     func updateInfo(song:String, artist:String, image:String) {
-        DispatchQueue.main.async {
-            self.songName.stringValue = song
-            self.artistName.stringValue = artist
-            
-            let url = URL(string: image)
-            let data = try? Data(contentsOf: url!)
-            self.songImage.image = NSImage(data: data!)
+        if !(song.isEmpty && artist.isEmpty && image.isEmpty) {
+            DispatchQueue.main.async {
+                self.songName.stringValue = song
+                self.artistName.stringValue = artist
+                
+                let url = URL(string: image)
+                let data = try? Data(contentsOf: url!)
+                self.songImage.image = NSImage(data: data!)
+            }
+        } else{
+            DispatchQueue.main.async {
+                self.songName.stringValue = "-"
+                self.artistName.stringValue = "-"
+                self.songImage.image = NSImage(named: "CoverImage")
+            }
         }
+        
     }
     
 }
