@@ -27,8 +27,14 @@ class InfoView: NSView {
                 self.artistName.stringValue = artist
                 
                 let url = URL(string: image)
-                let data = try? Data(contentsOf: url!)
-                self.songImage.image = NSImage(data: data!)
+                
+                if url != nil {
+                    let data = try? Data(contentsOf: url!)
+                    self.songImage.image = NSImage(data: data!)
+                } else{
+                    self.songImage.image = NSImage(named: "CoverImage")
+                }
+                
             }
         } else{
             DispatchQueue.main.async {

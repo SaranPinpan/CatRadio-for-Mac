@@ -29,6 +29,8 @@ class MenuController: NSObject {
         infoMenuItem = menu.item(withTitle: "Info")
         infoMenuItem.view = infoView
         
+        radioInfo()
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(radioInfo), userInfo: nil, repeats: true)
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
@@ -50,10 +52,6 @@ class MenuController: NSObject {
     func playRadio() {
         RadioPlayer.sharedInstance.play()
         playButton.setTitleWithMnemonic("Pause radio")
-        
-        radioInfo()
-        
-        Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(radioInfo), userInfo: nil, repeats: true)
     }
     
     func pauseRadio() {
@@ -63,11 +61,12 @@ class MenuController: NSObject {
     
     func radioInfo(){
         Alamofire.request("http://thisiscat.com/now.php").responseJSON { response in
-            print(response.result)
+            print("\n****************************************************\n                      \(response.result)\n****************************************************")
             if let JSON = response.result.value {
+                print("JSON: \(JSON)")
                 
                 let data = JSON as! NSDictionary
-                if (data.value(forKey: "now") != nil){
+                if !(data.value(forKey: "now") is NSNull) {
                     let nowPlaying = data.value(forKey: "now") as! NSDictionary
                     let image = nowPlaying.value(forKey: "id") as! String
                 
