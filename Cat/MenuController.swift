@@ -30,7 +30,6 @@ class MenuController: NSObject {
         infoMenuItem.view = infoView
         
         radioInfo()
-        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(radioInfo), userInfo: nil, repeats: true)
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
@@ -52,6 +51,9 @@ class MenuController: NSObject {
     func playRadio() {
         RadioPlayer.sharedInstance.play()
         playButton.setTitleWithMnemonic("Pause radio")
+        
+        //get song info
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(radioInfo), userInfo: nil, repeats: true)
     }
     
     func pauseRadio() {

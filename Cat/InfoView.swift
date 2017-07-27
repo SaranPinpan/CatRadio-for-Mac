@@ -30,7 +30,11 @@ class InfoView: NSView {
                 
                 if url != nil {
                     let data = try? Data(contentsOf: url!)
-                    self.songImage.image = NSImage(data: data!)
+                    if data != nil {
+                        self.songImage.image = NSImage(data: data!)
+                    } else{
+                        self.songImage.image = NSImage(named: "CoverImage")
+                    }
                 } else{
                     self.songImage.image = NSImage(named: "CoverImage")
                 }
