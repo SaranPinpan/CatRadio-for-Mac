@@ -63,7 +63,7 @@ class MenuController: NSObject {
     
     func radioInfo(){
         Alamofire.request("http://thisiscat.com/now.php").responseJSON { response in
-            print("\n****************************************************\n                      \(response.result)\n****************************************************")
+            print("\n****************************************************")
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
                 
